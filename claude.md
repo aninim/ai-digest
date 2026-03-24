@@ -46,7 +46,7 @@ ai-digest/
 ## Key Conventions
 
 - **Python package:** `google-genai` (NOT the deprecated `google-generativeai`)
-- **Gemini model:** `gemini-2.0-flash`
+- **Gemini model:** `gemini-2.5-flash`
 - **API key:** Read from `.env` via `python-dotenv` or environment variable `GEMINI_API_KEY`
 - **Never hardcode API keys** — check `.gitignore` includes `.env`
 - **Output paths** are always relative to repo root, not `digest/` subfolder
