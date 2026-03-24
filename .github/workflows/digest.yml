@@ -1,0 +1,37 @@
+name: AI Daily Digest
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # Daily 6am UTC (8am Israel)
+  workflow_dispatch:        # Manual trigger for testing
+
+jobs:
+  run-digest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r digest/requirements.txt
+
+      - name: Run agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python digest/agent.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "digest-bot"
+          git config user.email "bot@dads42.com"
+          git add docs/digest/data.json docs/digest/history/
+          git diff --staged --quiet || git commit -m "digest: $(date +%Y-%m-%d)"
+          git push

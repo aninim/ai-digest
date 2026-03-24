@@ -1,0 +1,36 @@
+{
+  "orgs": [
+    "https://www.anthropic.com/news",
+    "https://openai.com/news",
+    "https://deepmind.google/discover/blog/",
+    "https://blogs.nvidia.com/blog/category/deep-learning/",
+    "https://ai.meta.com/blog/",
+    "https://mistral.ai/news/",
+    "https://huggingface.co/blog",
+    "https://x.ai/news"
+  ],
+  "newsletters_rss": [
+    "https://tldr.tech/ai/rss",
+    "https://www.bensbites.com/feed",
+    "https://www.therundown.ai/feed"
+  ],
+  "influencers": [
+    "Simon Willison (simonwillison.net)",
+    "Andrej Karpathy",
+    "Yann LeCun",
+    "Sam Altman",
+    "Jensen Huang",
+    "Demis Hassabis",
+    "Yuval Avidani / Logan Avidani (YUV.AI — Israeli AI builder, LinkedIn & GitHub, search his recent posts and repos)"
+  ],
+  "topics_always_include": [
+    "new model releases",
+    "prompting techniques and hacks",
+    "AI coding tools and agents",
+    "multimodal AI developments",
+    "AI for education",
+    "computer vision advances",
+    "open source AI releases",
+    "AI automation tools"
+  ]
+}
