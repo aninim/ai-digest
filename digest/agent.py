@@ -3,6 +3,7 @@ import json
 import datetime
 import shutil
 from google import genai
+from google.genai import types
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -59,12 +60,25 @@ Rules:
 
 response = client.models.generate_content(
     model="gemini-2.5-flash",
-    contents=PROMPT
+    contents=PROMPT,
+    config=types.GenerateContentConfig(
+        tools=[types.Tool(google_search=types.GoogleSearch())]
+    )
 )
 
 # Parse and validate
 raw = response.text.strip()
-data = json.loads(raw)
+if raw.startswith("```"):
+    raw = raw.split("```")[1]
+    if raw.startswith("json"):
+        raw = raw[4:]
+    raw = raw.strip()
+try:
+    data = json.loads(raw)
+except json.JSONDecodeError as e:
+    print(f"❌ Gemini returned invalid JSON: {e}")
+    print(f"Raw response:\n{raw}")
+    raise
 
 # Write daily output
 os.makedirs(HISTORY_PATH, exist_ok=True)
