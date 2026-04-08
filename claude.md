@@ -68,9 +68,10 @@ ai-digest/
 | `digest.yml` | ✅ Done |
 | `.env` | ✅ Created — add real key, never commit |
 | `.gitignore` | ✅ Done — `.env`, `venv/`, `__pycache__/` |
-| GitHub secret | ⏳ Pending |
+| GitHub secret | ✅ Done — GEMINI_API_KEY set in repo secrets |
 | Local test | ✅ Done — first run 2026-03-24, data.json + history snapshot confirmed |
-| DNS / GitHub Pages | ⏳ Later |
+| DNS / GitHub Pages | ✅ Live — digest.dads42.com/digest/ (password: dads42digest) |
+| Search grounding | ✅ Enabled — Gemini uses Google Search for real-time news |
 
 ---
 
